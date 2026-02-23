@@ -1,0 +1,52 @@
+import Image from 'next/image';
+import { AMENITIES } from '@/lib/content';
+
+export default function Amenities() {
+  return (
+    <section id="amenities" className="py-20 lg:py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-6 font-[Georgia,serif]">
+              {AMENITIES.title}
+            </h2>
+            <p className="text-xl text-charcoal mb-6 leading-relaxed">
+              {AMENITIES.description}
+            </p>
+            <p className="text-warm-gray text-lg leading-relaxed mb-8">
+              {AMENITIES.placeholder}
+            </p>
+            <div className="bg-cream rounded-lg p-6 border-l-4 border-gold">
+              <p className="text-navy font-semibold mb-2">
+                Powered by our partnership with {AMENITIES.partnerName}
+              </p>
+              <ul className="space-y-2 text-warm-gray">
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-gold rounded-full" />
+                  Community amenity details — coming soon
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-gold rounded-full" />
+                  Exclusive resident benefits — coming soon
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-gold rounded-full" />
+                  Additional services — coming soon
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="relative h-80 lg:h-[500px] rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/images/amenity.jpg"
+              alt="Chelsea at Longwood amenity space rendering"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

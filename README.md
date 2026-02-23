@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chelsea at Longwood — Preview Site
 
-## Getting Started
+A password-protected preview experience for three landing page concepts, built for **Studio 1299**.
 
-First, run the development server:
+## How It Works
+
+- **`/login`** — Password gate (password: `foryourreview`)
+- **`/`** — Landing page showing all 3 design options
+- **`/v1`** — Classic Trust (navy/cream/gold)
+- **`/v2`** — Modern Premium (charcoal/copper)
+- **`/v3`** — Warm Community (sage/terracotta)
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to Netlify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push this `site/` directory to a Git repository
+2. Connect the repo to Netlify
+3. Set build command: `npm run build`
+4. Set publish directory: `.next`
+5. Add environment variables in Netlify dashboard (see `.env.example`)
 
-## Learn More
+Or deploy via CLI:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install -g netlify-cli
+netlify login
+netlify init
+netlify deploy --prod
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | Resend API key for email notifications |
+| `NOTIFICATION_EMAIL` | Recipient email (default: info@askgreta.com) |
+| `GOOGLE_SHEETS_ID` | Google Sheets spreadsheet ID |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Service account email |
+| `GOOGLE_PRIVATE_KEY` | Service account private key |
+| `NEXT_PUBLIC_SHOW_BOOK_SHOWING` | Feature flag for Book a Showing |
+| `NEXT_PUBLIC_CALENDLY_URL` | Calendly embed URL |
 
-## Deploy on Vercel
+## Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Netlify (via @netlify/plugin-nextjs)
