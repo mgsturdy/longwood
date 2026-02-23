@@ -29,25 +29,26 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-24 lg:py-32 bg-white">
+    <section id="gallery" className="py-28 lg:py-40 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mx-auto text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-6 font-[Georgia,serif] leading-tight">
+        <div className="max-w-3xl mb-14">
+          <div className="w-12 h-1 bg-gold mb-8" />
+          <h2 className="text-navy mb-6">
             {GALLERY.title}
           </h2>
-          <p className="text-xl lg:text-2xl text-warm-gray leading-relaxed">
+          <p className="text-xl text-warm-gray leading-relaxed">
             {GALLERY.subtitle}
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap gap-2 mb-12">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.value}
               onClick={() => setActiveCategory(cat.value)}
-              className={`px-6 py-2.5 rounded-full text-base font-medium transition-colors ${
+              className={`px-6 py-2.5 text-sm font-semibold tracking-wide transition-colors ${
                 activeCategory === cat.value
-                  ? 'bg-navy text-white shadow-sm'
+                  ? 'bg-navy text-white'
                   : 'bg-cream text-charcoal hover:bg-cream-dark'
               }`}
             >
@@ -56,37 +57,37 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((img) => (
             <button
               key={img.src}
               onClick={() => openLightbox(img)}
-              className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-gold"
+              className="relative aspect-[4/3] overflow-hidden group cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-gold"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors" />
+              <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/20 transition-colors duration-300" />
             </button>
           ))}
         </div>
 
-        <div className="mt-14 grid sm:grid-cols-2 gap-8">
-          <div className="bg-cream rounded-xl p-10 text-center">
-            <svg className="w-12 h-12 text-warm-gray mx-auto mb-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+        <div className="mt-14 grid sm:grid-cols-2 gap-6">
+          <div className="bg-cream p-10 text-center">
+            <svg className="w-10 h-10 text-warm-gray mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
             </svg>
-            <p className="text-warm-gray text-lg">{GALLERY.videoPlaceholder}</p>
+            <p className="text-warm-gray text-base">{GALLERY.videoPlaceholder}</p>
           </div>
-          <div className="bg-cream rounded-xl p-10 text-center">
-            <svg className="w-12 h-12 text-warm-gray mx-auto mb-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+          <div className="bg-cream p-10 text-center">
+            <svg className="w-10 h-10 text-warm-gray mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456Z" />
             </svg>
-            <p className="text-warm-gray text-lg">{GALLERY.soraPlaceholder}</p>
+            <p className="text-warm-gray text-base">{GALLERY.soraPlaceholder}</p>
           </div>
         </div>
       </div>
@@ -113,7 +114,7 @@ export default function Gallery() {
               alt={lightboxImage.alt}
               width={lightboxImage.width}
               height={lightboxImage.height}
-              className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+              className="w-full h-auto max-h-[85vh] object-contain"
             />
             <p className="text-white/70 text-center mt-5 text-base">
               {lightboxImage.alt}

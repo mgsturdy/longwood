@@ -24,14 +24,19 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white shadow-md py-3.5'
-          : 'bg-white/95 py-5'
+          ? 'bg-white shadow-lg py-3'
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
-        <a href="#" className="text-navy text-xl sm:text-2xl font-bold font-[Georgia,serif] tracking-tight">
+        <a
+          href="#"
+          className={`text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-500 ${
+            scrolled ? 'text-navy' : 'text-white'
+          }`}
+        >
           {SITE_NAME}
         </a>
 
@@ -40,7 +45,11 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-charcoal hover:text-navy text-base font-medium transition-colors"
+              className={`text-base font-medium transition-colors duration-300 ${
+                scrolled
+                  ? 'text-charcoal hover:text-navy'
+                  : 'text-white/80 hover:text-white'
+              }`}
             >
               {link.label}
             </a>
@@ -48,7 +57,7 @@ export default function Header() {
           <a
             href="#register"
             onClick={() => track('cta_click', { location: 'header' })}
-            className="bg-navy text-white px-7 py-3 rounded-lg text-base font-semibold hover:bg-navy-light transition-colors"
+            className="bg-gold text-navy-dark px-7 py-3 text-base font-bold hover:bg-gold-light transition-colors tracking-wide"
           >
             {HERO.cta}
           </a>
@@ -58,13 +67,13 @@ export default function Header() {
           <a
             href="#register"
             onClick={() => track('cta_click', { location: 'header-mobile' })}
-            className="bg-navy text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-navy-light transition-colors"
+            className="bg-gold text-navy-dark px-5 py-2.5 text-sm font-bold hover:bg-gold-light transition-colors"
           >
             Register
           </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2.5 text-navy"
+            className={`p-2.5 transition-colors ${scrolled ? 'text-navy' : 'text-white'}`}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
@@ -80,7 +89,7 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="lg:hidden bg-white border-t border-cream-dark px-6 py-5 space-y-1" aria-label="Mobile navigation">
+        <nav className="lg:hidden bg-white border-t border-cream-dark px-6 py-5 space-y-1 shadow-lg" aria-label="Mobile navigation">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}

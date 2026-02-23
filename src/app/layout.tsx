@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { playfairDisplay, inter, dmSerifDisplay, dmSans } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${playfairDisplay.variable} ${inter.variable} ${dmSerifDisplay.variable} ${dmSans.variable}`}
+    >
       <body className="antialiased">{children}</body>
     </html>
   );

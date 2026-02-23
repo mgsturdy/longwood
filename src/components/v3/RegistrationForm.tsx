@@ -114,7 +114,7 @@ export default function RegistrationForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 id="register-heading" className="text-3xl sm:text-4xl font-bold text-forest mb-4 tracking-tight">
+            <h2 id="register-heading" className="text-forest mb-4">
               {FORM.successTitle}
             </h2>
             <p className="text-warm-brown/80 text-lg leading-relaxed max-w-md mx-auto">
@@ -143,13 +143,10 @@ export default function RegistrationForm() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-soft-white p-8 sm:p-12 lg:p-14 shadow-xl">
           <div className="text-center mb-12">
-            <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-5">
-              Get Started
-            </span>
-            <h2 id="register-heading" className="text-3xl sm:text-4xl font-bold text-forest tracking-tight">
+            <h2 id="register-heading" className="text-forest">
               {FORM.title}
             </h2>
-            <p className="mt-4 text-warm-brown/80 text-lg leading-relaxed">{FORM.subtitle}</p>
+            <p className="mt-4 text-warm-brown/70 text-lg leading-relaxed">{FORM.subtitle}</p>
           </div>
 
           {serverError && (

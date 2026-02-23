@@ -88,7 +88,7 @@ export default function RegistrationForm() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-[Georgia,serif] leading-tight">
+          <h2 className="text-white mb-6">
             {FORM.successTitle}
           </h2>
           <p className="text-xl lg:text-2xl text-white/80 leading-relaxed mb-10">
@@ -107,7 +107,7 @@ export default function RegistrationForm() {
     <section id="register" className="py-24 lg:py-32 bg-navy">
       <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-[Georgia,serif] leading-tight">
+          <h2 className="text-white mb-6">
             {FORM.title}
           </h2>
           <p className="text-xl lg:text-2xl text-white/70 leading-relaxed">

@@ -66,36 +66,39 @@ body {
   outline-offset: 2px;
 }
 
-/* ───────────────────────────── V1 — Classic Trust ───────────────────────────── */
+/* ══════════════════════ V1 — Classic Trust (Playfair + Inter) ══════════════════════ */
 
 .theme-v1 {
   background: var(--color-warm-white);
   color: var(--color-charcoal);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.75;
 }
 
 .theme-v1 h1, .theme-v1 h2, .theme-v1 h3, .theme-v1 h4 {
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.25;
+  font-family: var(--font-playfair), Georgia, serif;
+  line-height: 1.15;
+  font-weight: 700;
 }
 
 .theme-v1 h1 {
-  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
-  letter-spacing: -0.01em;
+  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  letter-spacing: -0.025em;
 }
 
 .theme-v1 h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  letter-spacing: -0.005em;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  letter-spacing: -0.02em;
 }
 
 .theme-v1 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  letter-spacing: -0.01em;
 }
 
 .theme-v1 p {
-  max-width: 65ch;
+  max-width: 60ch;
 }
 
 .theme-v1 ::selection {
@@ -107,7 +110,7 @@ body {
   position: relative;
 }
 
-/* ───────────────────────────── V2 — Modern Premium ───────────────────────────── */
+/* ══════════════════════ V2 — Modern Premium ══════════════════════ */
 
 .theme-v2 {
   background: var(--color-ivory);
@@ -146,34 +149,40 @@ body {
   max-width: 65ch;
 }
 
-/* ───────────────────────────── V3 — Warm Community ───────────────────────────── */
+/* ══════════════════════ V3 — Warm Community (DM Serif + DM Sans) ══════════════════════ */
 
 .theme-v3 {
   background: var(--color-soft-white);
   color: #3D3028;
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
   font-size: 18px;
   line-height: 1.75;
 }
 
+.theme-v3 h1, .theme-v3 h2, .theme-v3 h3, .theme-v3 h4 {
+  font-family: var(--font-dm-serif), Georgia, serif;
+  font-weight: 400;
+}
+
 .theme-v3 h1 {
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.theme-v3 h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
   letter-spacing: -0.01em;
   line-height: 1.2;
 }
 
-.theme-v3 h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  letter-spacing: -0.005em;
-  line-height: 1.25;
-}
-
 .theme-v3 h3 {
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  line-height: 1.35;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.3;
 }
 
 .theme-v3 p {
-  max-width: 65ch;
+  max-width: 60ch;
 }
 
 .theme-v3 ::selection {
@@ -181,7 +190,7 @@ body {
   color: white;
 }
 
-/* ───────────────────────────── Animations ───────────────────────────── */
+/* ══════════════════════ Animations ══════════════════════ */
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(12px); }
@@ -231,7 +240,7 @@ body {
 .delay-600 { animation-delay: 600ms; }
 .delay-700 { animation-delay: 700ms; }
 
-/* ───────────────────────────── V2 Accents & Form ───────────────────────────── */
+/* ══════════════════════ V2 Accents & Form ══════════════════════ */
 
 .accent-line {
   width: 48px;
@@ -252,7 +261,6 @@ body {
   box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.12);
 }
 
-/* Soft section dividers for V2 dark sections */
 .theme-v2 .section-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(184, 134, 11, 0.15), transparent);
