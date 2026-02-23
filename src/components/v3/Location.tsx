@@ -2,21 +2,21 @@ import { LOCATION } from '@/lib/content';
 
 export default function Location() {
   return (
-    <section id="location" className="py-20 sm:py-28 bg-soft-white" aria-labelledby="location-heading">
+    <section id="location" className="py-24 lg:py-32 bg-soft-white" aria-labelledby="location-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-5">
             Your Neighbourhood
           </span>
-          <h2 id="location-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest tracking-tight">
+          <h2 id="location-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest tracking-tight leading-tight">
             {LOCATION.title}
           </h2>
-          <p className="mt-4 text-lg text-warm-brown/80">
+          <p className="mt-6 text-lg sm:text-xl text-warm-brown/80 leading-relaxed">
             {LOCATION.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div>
             <div className="rounded-3xl overflow-hidden shadow-lg border border-warm-gray-v3/50">
               <iframe
@@ -31,19 +31,34 @@ export default function Location() {
                 className="w-full"
               />
             </div>
-            <div className="mt-4 flex items-center gap-3 text-warm-brown">
+            <div className="mt-5 flex items-center gap-3 text-warm-brown">
               <svg className="w-5 h-5 text-terracotta flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
               </svg>
               <span className="font-medium">{LOCATION.address}</span>
             </div>
+
+            <div className="mt-6 rounded-2xl bg-sage/5 border border-sage/15 p-6">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-sage flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <p className="text-warm-brown/80 leading-relaxed text-sm italic">
+                  {LOCATION.walkabilityNote}
+                </p>
+              </div>
+            </div>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-forest mb-6">
+            <h3 className="text-2xl font-bold text-forest mb-2">
               Life in Longwood
             </h3>
+            <p className="text-warm-brown/60 text-sm mb-8">
+              Everything you need, close to home
+            </p>
             <div className="space-y-4">
               {LOCATION.highlights.map((highlight, idx) => (
                 <div
@@ -62,7 +77,7 @@ export default function Location() {
 
             <a
               href="#register"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-white font-semibold shadow-sm hover:bg-terracotta-dark transition-all hover:shadow-md"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3.5 text-white font-semibold shadow-sm hover:bg-terracotta-dark transition-all hover:shadow-md"
             >
               Join Our Community
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">

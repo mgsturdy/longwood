@@ -41,6 +41,7 @@ export interface FloorPlan {
   id: string;
   name: string;
   bedrooms: number;
+  description?: string;
   image?: string;
   sqft?: string;
   features: string[];

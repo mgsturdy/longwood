@@ -4,31 +4,32 @@ export const HERO = {
   headline: 'Modern Rental Living for Your Next Chapter',
   subheadline: 'Bright, comfortable homes in the heart of Longwood.',
   cta: 'Register for Updates',
-  trustCues: ['Professionally managed', '55+ friendly living'],
+  trustCues: ['Professionally managed', '55+ friendly living', 'Opening Spring 2026'],
 };
 
 export const OVERVIEW = {
-  title: 'Why Chelsea at Longwood',
-  subtitle: 'Key Benefits of Renting (vs. Owning)',
+  title: 'A Simpler Way to Live',
+  subtitle: 'You\'ve spent years taking care of a home. It may be time to let a home take care of you.',
   benefits: [
-    'No strata meetings, repairs, or maintenance',
-    'No strata fees or special levies',
-    'Brand-new, move-in-ready homes',
-    'Built-in community',
-    'Lower financial risk & greater flexibility',
-    'Peace of mind for downsizers or retirees who want simplicity and comfort',
-    'Professionally managed',
+    'Leave strata meetings, repairs, and maintenance behind',
+    'No strata fees or unexpected special levies',
+    'Brand-new, move-in-ready homes — just bring what matters to you',
+    'A built-in community of neighbours who share your stage of life',
+    'Lower financial risk and greater flexibility for your future',
+    'Peace of mind for downsizers and retirees who want simplicity and comfort',
+    'Professionally managed by a dedicated team — so you don\'t have to think about it',
   ],
 };
 
 export const HOMES = {
   title: 'The Homes',
   subtitle: 'Condo-quality living, designed for comfort',
+  intro: 'Every detail has been considered — from the natural light that fills each room to the accessible layouts designed for ease and independence.',
   features: [
     { label: 'Condo-quality 1- and 2-bedroom homes', icon: 'home' },
     { label: 'Air conditioning', icon: 'wind' },
-    { label: 'Modern kitchens', icon: 'kitchen' },
-    { label: 'Fireplace', icon: 'flame' },
+    { label: 'Modern kitchens with full appliances', icon: 'kitchen' },
+    { label: 'Cozy fireplace', icon: 'flame' },
     { label: 'In-suite laundry', icon: 'laundry' },
     { label: 'Open, practical layouts', icon: 'layout' },
     { label: 'Large windows with natural light', icon: 'sun' },
@@ -40,6 +41,7 @@ export const HOMES = {
       id: '1br',
       name: 'One Bedroom',
       bedrooms: 1,
+      description: 'A thoughtfully designed space that feels open, bright, and easy to call home.',
       features: [
         'Open-concept living & dining',
         'Modern kitchen with full appliances',
@@ -52,6 +54,7 @@ export const HOMES = {
       id: '2br',
       name: 'Two Bedroom',
       bedrooms: 2,
+      description: 'Room for a home office, guest space, or simply more room to breathe.',
       features: [
         'Spacious open-concept layout',
         'Modern kitchen with full appliances',
@@ -68,31 +71,33 @@ export const AMENITIES = {
   title: 'Amenities',
   partnerName: 'Origin',
   description:
-    'Amenities powered by our partnership with Origin — details coming soon.',
+    'Amenities thoughtfully designed to support comfort, connection, and ease — with full details to be announced.',
   placeholder:
-    'We are finalizing our full amenities program with Origin. Check back soon for updates on the exclusive benefits available to Chelsea at Longwood residents.',
+    'We are carefully curating the amenities program in partnership with Origin to ensure every offering genuinely enhances your daily life. Full details will be shared soon.',
 };
 
 export const LOCATION = {
   title: 'Location & Neighbourhood',
-  subtitle: 'Everything you need, steps from your door',
+  subtitle: 'Daily essentials and local favourites, just steps from your door.',
   address: '4775 Upland Drive, Nanaimo, BC V9T6L8',
   mapQuery: '4775+Upland+Drive+Nanaimo+BC+V9T6L8',
   highlights: [
-    'Steps from Longwood Station',
-    'Walkable access to Quality Foods, Thrifty Foods, restaurants, banking, medical services, and cafés',
-    'Peaceful, established neighbourhood',
-    'Nearby walking paths and parks',
-    'Ideal for comfort, convenience, and community',
+    'Steps from Longwood Station — easy transit access when you want it',
+    'Quality Foods, Thrifty Foods, restaurants, banking, and medical services within walking distance',
+    'A peaceful, established neighbourhood with mature trees and quiet streets',
+    'Walking paths and parks nearby for morning strolls or afternoon fresh air',
+    'The kind of neighbourhood where independence, convenience, and community come naturally',
   ],
+  walkabilityNote:
+    'Longwood is one of Nanaimo\'s most walkable neighbourhoods — designed around the comfort of getting where you need to go, on your own terms.',
 };
 
 export const GALLERY = {
   title: 'Gallery',
-  subtitle: 'See your future home',
-  videoPlaceholder: 'Drone / lifestyle / interior walk-through — coming soon',
+  subtitle: 'A closer look at your future home',
+  videoPlaceholder: 'Video walk-through — coming soon',
   soraPlaceholder:
-    'Sora-generated video of people biking, walking, and socializing — coming soon',
+    'Lifestyle video — coming soon',
   images: [
     {
       src: '/images/hero-view.jpg',
@@ -177,11 +182,11 @@ export const GALLERY = {
 export const FORM = {
   title: 'Register for Updates',
   subtitle:
-    'Be the first to know about availability, layouts, and move-in dates.',
+    'Be among the first to learn about availability, layouts, and move-in dates.',
   cta: 'Register for Updates',
-  successTitle: 'Thank you for registering!',
+  successTitle: 'Thank you for your interest.',
   successMessage:
-    "We've received your information and will be in touch soon with updates about Chelsea at Longwood.",
+    'We\'ve received your information and will be in touch soon with updates about Chelsea at Longwood. We look forward to welcoming you.',
   consentText: `By clicking on the box, I consent to Chelsea at Longwood marketing and leasing team to contact me via electronic and non-electronic means with messages such as newsletters, announcements, press releases and event invitations regarding their respective products and services. I consent to the collection, use and disclosure of my information submitted for the purposes disclosed on this page, including for electronic and non-electronic communications. I may withdraw my consent to electronic messages at any time by following the unsubscribe links contained in them. Gulf Development Inc's contact details are [Address].`,
   suiteOptions: [
     { value: '1BR', label: '1 Bedroom' },

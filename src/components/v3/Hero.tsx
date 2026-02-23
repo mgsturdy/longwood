@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[85vh] flex items-center overflow-hidden"
+      className="relative min-h-[90vh] flex items-center overflow-hidden"
       aria-label="Welcome to Chelsea at Longwood"
     >
       <Image
@@ -20,31 +20,31 @@ export default function Hero() {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-r from-forest/80 via-forest/50 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-forest/85 via-forest/55 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-forest/40 via-transparent to-forest/10" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="max-w-2xl">
           <div className="animate-fade-in-up">
-            <span className="inline-flex items-center gap-2 rounded-full bg-sage/30 backdrop-blur-sm px-4 py-2 text-sm font-medium text-cream-v3 border border-cream-v3/20 mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full bg-sage/30 backdrop-blur-sm px-5 py-2.5 text-sm font-medium text-cream-v3 border border-cream-v3/20 mb-8">
               <span className="w-2 h-2 rounded-full bg-terracotta-light animate-gentle-bounce" />
               Now Pre-Leasing
             </span>
           </div>
 
-          <h1 className="animate-fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-bold text-cream-v3 leading-tight tracking-tight">
+          <h1 className="animate-fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-cream-v3 leading-[1.1] tracking-tight">
             {HERO.headline}
           </h1>
 
-          <p className="animate-fade-in-up delay-200 mt-5 text-xl sm:text-2xl text-cream-v3/90 max-w-lg leading-relaxed">
+          <p className="animate-fade-in-up delay-200 mt-6 text-xl sm:text-2xl text-cream-v3/90 max-w-xl leading-relaxed font-light">
             {HERO.subheadline}
           </p>
 
-          <div className="animate-fade-in-up delay-300 flex flex-wrap gap-3 mt-6">
+          <div className="animate-fade-in-up delay-300 flex flex-wrap gap-3 mt-8">
             {HERO.trustCues.map((cue) => (
               <span
                 key={cue}
-                className="inline-flex items-center gap-2 rounded-full bg-cream-v3/15 backdrop-blur-sm px-4 py-2 text-sm text-cream-v3/95"
+                className="inline-flex items-center gap-2.5 rounded-full bg-cream-v3/10 backdrop-blur-sm px-4 py-2.5 text-sm text-cream-v3/95 border border-cream-v3/10"
               >
                 <svg className="w-4 h-4 text-terracotta-light flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path
@@ -58,11 +58,11 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="animate-fade-in-up delay-400 mt-10 flex flex-col sm:flex-row gap-4">
+          <div className="animate-fade-in-up delay-400 mt-12 flex flex-col sm:flex-row gap-4">
             <a
               href="#register"
               onClick={() => track('cta_click', { location: 'hero' })}
-              className="inline-flex items-center justify-center rounded-full bg-terracotta px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-terracotta-dark hover:shadow-xl transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center rounded-full bg-terracotta px-10 py-4.5 text-lg font-semibold text-white shadow-lg hover:bg-terracotta-dark hover:shadow-xl transition-all hover:-translate-y-0.5"
             >
               {HERO.cta}
               <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -71,7 +71,7 @@ export default function Hero() {
             </a>
             <a
               href="#homes"
-              className="inline-flex items-center justify-center rounded-full bg-cream-v3/15 backdrop-blur-sm border border-cream-v3/30 px-8 py-4 text-lg font-semibold text-cream-v3 hover:bg-cream-v3/25 transition-all"
+              className="inline-flex items-center justify-center rounded-full bg-cream-v3/15 backdrop-blur-sm border border-cream-v3/30 px-10 py-4.5 text-lg font-semibold text-cream-v3 hover:bg-cream-v3/25 transition-all"
             >
               Explore the Homes
             </a>
@@ -79,8 +79,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-gentle-bounce">
-        <a href="#overview" aria-label="Scroll to learn more" className="text-cream-v3/60 hover:text-cream-v3 transition-colors">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-gentle-bounce">
+        <a href="#overview" aria-label="Scroll to learn more" className="text-cream-v3/50 hover:text-cream-v3 transition-colors">
           <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>

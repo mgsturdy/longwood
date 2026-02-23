@@ -12,27 +12,27 @@ const icons = [
 
 export default function Overview() {
   return (
-    <section id="overview" className="py-20 sm:py-28 bg-cream-v3" aria-labelledby="overview-heading">
+    <section id="overview" className="py-24 lg:py-32 bg-cream-v3" aria-labelledby="overview-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block rounded-full bg-sage/10 px-4 py-1.5 text-sm font-semibold text-sage mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-block rounded-full bg-sage/10 px-4 py-1.5 text-sm font-semibold text-sage mb-5">
             Why Rent Here
           </span>
-          <h2 id="overview-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest tracking-tight">
+          <h2 id="overview-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest tracking-tight leading-tight">
             {OVERVIEW.title}
           </h2>
-          <p className="mt-4 text-lg text-warm-brown/80">
+          <p className="mt-6 text-lg sm:text-xl text-warm-brown/80 leading-relaxed">
             {OVERVIEW.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {OVERVIEW.benefits.map((benefit, idx) => (
             <div
               key={idx}
-              className="group rounded-2xl bg-soft-white p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border border-warm-gray-v3/50"
+              className="group rounded-2xl bg-soft-white p-7 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 border border-warm-gray-v3/50"
             >
-              <div className="w-14 h-14 rounded-2xl bg-sage/10 flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-white transition-colors mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-sage/10 flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-white transition-colors mb-5">
                 {icons[idx % icons.length]}
               </div>
               <p className="text-lg font-medium text-forest leading-relaxed">

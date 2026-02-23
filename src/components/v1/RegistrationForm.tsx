@@ -81,18 +81,22 @@ export default function RegistrationForm() {
 
   if (submitted) {
     return (
-      <section id="register" className="py-20 lg:py-28 bg-navy">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center animate-fade-in-up">
-          <div className="w-20 h-20 bg-gold rounded-full flex items-center justify-center mx-auto mb-8">
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+      <section id="register" className="py-28 lg:py-36 bg-navy">
+        <div className="max-w-2xl mx-auto px-6 sm:px-8 text-center animate-fade-in-up">
+          <div className="w-24 h-24 bg-gold rounded-full flex items-center justify-center mx-auto mb-10">
+            <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 font-[Georgia,serif]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-[Georgia,serif] leading-tight">
             {FORM.successTitle}
           </h2>
-          <p className="text-xl text-white/80 leading-relaxed">
+          <p className="text-xl lg:text-2xl text-white/80 leading-relaxed mb-10">
             {FORM.successMessage}
+          </p>
+          <div className="w-16 h-px bg-gold/40 mx-auto mb-8" />
+          <p className="text-white/50 text-base">
+            We&rsquo;ll be in touch soon.
           </p>
         </div>
       </section>
@@ -100,22 +104,24 @@ export default function RegistrationForm() {
   }
 
   return (
-    <section id="register" className="py-20 lg:py-28 bg-navy">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 font-[Georgia,serif]">
+    <section id="register" className="py-24 lg:py-32 bg-navy">
+      <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-[Georgia,serif] leading-tight">
             {FORM.title}
           </h2>
-          <p className="text-xl text-white/70">{FORM.subtitle}</p>
+          <p className="text-xl lg:text-2xl text-white/70 leading-relaxed">
+            {FORM.subtitle}
+          </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
           noValidate
-          className="bg-white rounded-xl p-6 sm:p-10 shadow-xl space-y-6"
+          className="bg-white rounded-2xl p-8 sm:p-12 shadow-2xl space-y-7"
         >
           {serverError && (
-            <div className="bg-error/10 border border-error/30 text-error p-4 rounded-lg text-base" role="alert">
+            <div className="bg-error/10 border border-error/30 text-error p-5 rounded-xl text-base" role="alert">
               {serverError}
             </div>
           )}
@@ -131,7 +137,7 @@ export default function RegistrationForm() {
             autoComplete="name"
           />
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-7">
             <InputField
               label="Email"
               id="email"
@@ -154,7 +160,7 @@ export default function RegistrationForm() {
             />
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-3 gap-7">
             <SelectField
               label="Suite Preference"
               id="suitePreference"
@@ -188,13 +194,13 @@ export default function RegistrationForm() {
           </div>
 
           <fieldset>
-            <legend className="block text-base font-semibold text-charcoal mb-3">
+            <legend className="block text-base font-semibold text-charcoal mb-4">
               Preferred Method of Communication *
             </legend>
             {errors.communicationPreference && (
-              <p className="text-error text-sm mb-2">{errors.communicationPreference}</p>
+              <p className="text-error text-sm mb-3">{errors.communicationPreference}</p>
             )}
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-8">
               {(['phoneCall', 'email', 'text'] as const).map((method) => {
                 const labels: Record<string, string> = {
                   phoneCall: 'Phone Call',
@@ -202,7 +208,7 @@ export default function RegistrationForm() {
                   text: 'Text',
                 };
                 return (
-                  <label key={method} className="flex items-center gap-2 cursor-pointer">
+                  <label key={method} className="flex items-center gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={formData.communicationPreference[method]}
@@ -214,7 +220,7 @@ export default function RegistrationForm() {
                       }
                       className="w-5 h-5 rounded border-gray-300 text-navy accent-navy"
                     />
-                    <span className="text-charcoal">{labels[method]}</span>
+                    <span className="text-charcoal text-base">{labels[method]}</span>
                   </label>
                 );
               })}
@@ -222,7 +228,7 @@ export default function RegistrationForm() {
           </fieldset>
 
           <div>
-            <label htmlFor="notes" className="block text-base font-semibold text-charcoal mb-2">
+            <label htmlFor="notes" className="block text-base font-semibold text-charcoal mb-3">
               Notes <span className="font-normal text-warm-gray">(optional)</span>
             </label>
             <textarea
@@ -230,12 +236,12 @@ export default function RegistrationForm() {
               rows={3}
               value={formData.notes}
               onChange={(e) => updateField('notes', e.target.value)}
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 text-charcoal text-base focus:border-navy focus:ring-2 focus:ring-navy/20 transition"
+              className="w-full rounded-xl border border-gray-300 px-5 py-3.5 text-charcoal text-base focus:border-navy focus:ring-2 focus:ring-navy/20 transition"
             />
           </div>
 
-          <div className="bg-cream rounded-lg p-5">
-            <label className="flex items-start gap-3 cursor-pointer">
+          <div className="bg-cream/70 rounded-xl p-6 border border-cream-dark/30">
+            <label className="flex items-start gap-4 cursor-pointer">
               <input
                 type="checkbox"
                 checked={formData.consent}
@@ -248,14 +254,14 @@ export default function RegistrationForm() {
               </span>
             </label>
             {errors.consent && (
-              <p className="text-error text-sm mt-2 ml-8">{errors.consent}</p>
+              <p className="text-error text-sm mt-3 ml-9">{errors.consent}</p>
             )}
           </div>
 
           <button
             type="submit"
             disabled={submitting}
-            className="w-full bg-gold text-navy-dark py-4 rounded-lg text-lg font-bold hover:bg-gold-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gold text-navy-dark py-4.5 rounded-xl text-lg font-bold hover:bg-gold-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
           >
             {submitting ? 'Submitting...' : FORM.cta}
           </button>
@@ -288,7 +294,7 @@ function InputField({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-base font-semibold text-charcoal mb-2">
+      <label htmlFor={id} className="block text-base font-semibold text-charcoal mb-2.5">
         {label} {required && '*'}
       </label>
       <input
@@ -301,12 +307,12 @@ function InputField({
         placeholder={placeholder}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`w-full rounded-lg border px-4 py-3 text-charcoal text-base transition focus:ring-2 focus:ring-navy/20 ${
+        className={`w-full rounded-xl border px-5 py-3.5 text-charcoal text-base transition focus:ring-2 focus:ring-navy/20 ${
           error ? 'border-error focus:border-error' : 'border-gray-300 focus:border-navy'
         }`}
       />
       {error && (
-        <p id={`${id}-error`} className="text-error text-sm mt-1.5" role="alert">
+        <p id={`${id}-error`} className="text-error text-sm mt-2" role="alert">
           {error}
         </p>
       )}
@@ -335,7 +341,7 @@ function SelectField({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-base font-semibold text-charcoal mb-2">
+      <label htmlFor={id} className="block text-base font-semibold text-charcoal mb-2.5">
         {label} {required && '*'}
       </label>
       <select
@@ -345,7 +351,7 @@ function SelectField({
         onChange={(e) => onChange(e.target.value)}
         aria-invalid={!!error}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`w-full rounded-lg border px-4 py-3 text-charcoal text-base transition focus:ring-2 focus:ring-navy/20 ${
+        className={`w-full rounded-xl border px-5 py-3.5 text-charcoal text-base transition focus:ring-2 focus:ring-navy/20 ${
           error ? 'border-error focus:border-error' : 'border-gray-300 focus:border-navy'
         }`}
       >
@@ -357,7 +363,7 @@ function SelectField({
         ))}
       </select>
       {error && (
-        <p id={`${id}-error`} className="text-error text-sm mt-1.5" role="alert">
+        <p id={`${id}-error`} className="text-error text-sm mt-2" role="alert">
           {error}
         </p>
       )}

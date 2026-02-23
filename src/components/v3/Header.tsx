@@ -15,10 +15,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-soft-white/95 backdrop-blur-sm border-b border-warm-gray-v3">
+    <header className="sticky top-0 z-50 bg-soft-white/95 backdrop-blur-md border-b border-warm-gray-v3/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-18 items-center justify-between">
-          <a href="#" className="flex items-center gap-2 group" aria-label="Home">
+          <a href="#" className="flex items-center gap-2.5 group" aria-label="Home">
             <div className="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-bold text-lg group-hover:bg-sage-dark transition-colors">
               C
             </div>
@@ -68,13 +68,13 @@ export default function Header() {
 
       {mobileOpen && (
         <div className="md:hidden border-t border-warm-gray-v3 bg-soft-white animate-fade-in">
-          <div className="px-4 py-4 space-y-1">
+          <div className="px-4 py-5 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block rounded-xl px-4 py-3 text-warm-brown hover:bg-warm-gray-v3 font-medium transition-colors"
+                className="block rounded-xl px-4 py-3.5 text-warm-brown hover:bg-warm-gray-v3 font-medium transition-colors"
               >
                 {link.label}
               </a>
@@ -85,7 +85,7 @@ export default function Header() {
                 setMobileOpen(false);
                 track('cta_click', { location: 'header_mobile' });
               }}
-              className="block rounded-full bg-terracotta px-6 py-3 text-center text-white font-semibold hover:bg-terracotta-dark transition-colors mt-2"
+              className="block rounded-full bg-terracotta px-6 py-3.5 text-center text-white font-semibold hover:bg-terracotta-dark transition-colors mt-3"
             >
               Register Now
             </a>

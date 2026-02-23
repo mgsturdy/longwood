@@ -20,26 +20,35 @@ const featureIcons: Record<string, React.ReactNode> = {
 
 function FloorPlanCard({ plan }: { plan: FloorPlan }) {
   return (
-    <div className="rounded-2xl bg-soft-white border border-warm-gray-v3/50 p-6 sm:p-8 shadow-sm">
-      <div className="flex items-center gap-3 mb-5">
-        <div className="w-12 h-12 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta font-bold text-lg">
-          {plan.bedrooms}
-        </div>
-        <div>
-          <h4 className="text-xl font-bold text-forest">{plan.name}</h4>
-          <p className="text-sm text-warm-brown/70">{plan.bedrooms} bedroom{plan.bedrooms > 1 ? 's' : ''}</p>
+    <div className="rounded-2xl bg-soft-white border border-warm-gray-v3/50 shadow-sm overflow-hidden">
+      <div className="bg-sage/5 px-7 py-5 border-b border-warm-gray-v3/30">
+        <div className="flex items-center gap-4">
+          <div className="w-13 h-13 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta font-bold text-xl">
+            {plan.bedrooms}
+          </div>
+          <div>
+            <h4 className="text-xl font-bold text-forest">{plan.name}</h4>
+            <p className="text-sm text-warm-brown/60">{plan.bedrooms} bedroom{plan.bedrooms > 1 ? 's' : ''}</p>
+          </div>
         </div>
       </div>
-      <ul className="space-y-3">
-        {plan.features.map((feature, idx) => (
-          <li key={idx} className="flex items-start gap-3">
-            <svg className="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span className="text-warm-brown">{feature}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="px-7 py-6">
+        {plan.description && (
+          <p className="text-warm-brown/80 leading-relaxed mb-5 italic">
+            {plan.description}
+          </p>
+        )}
+        <ul className="space-y-3">
+          {plan.features.map((feature, idx) => (
+            <li key={idx} className="flex items-start gap-3">
+              <svg className="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span className="text-warm-brown">{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
@@ -49,21 +58,24 @@ export default function Homes() {
   const selectedPlan = HOMES.floorPlans.find((p) => p.id === activePlan)!;
 
   return (
-    <section id="homes" className="py-20 sm:py-28 bg-soft-white" aria-labelledby="homes-heading">
+    <section id="homes" className="py-24 lg:py-32 bg-soft-white" aria-labelledby="homes-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-5">
             Your Future Home
           </span>
-          <h2 id="homes-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest tracking-tight">
+          <h2 id="homes-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-forest tracking-tight leading-tight">
             {HOMES.title}
           </h2>
-          <p className="mt-4 text-lg text-warm-brown/80">
+          <p className="mt-4 text-lg sm:text-xl text-warm-brown/80 leading-relaxed">
             {HOMES.subtitle}
+          </p>
+          <p className="mt-4 text-base text-warm-brown/70 leading-relaxed max-w-2xl mx-auto">
+            {HOMES.intro}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div>
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-lg">
               <Image
@@ -76,7 +88,7 @@ export default function Homes() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-4">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
                 <Image
                   src="/images/kitchen-opt1.jpg"
                   alt="Modern kitchen with contemporary finishes"
@@ -85,7 +97,7 @@ export default function Homes() {
                   sizes="(max-width: 1024px) 50vw, 25vw"
                 />
               </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
                 <Image
                   src="/images/ensuite.jpg"
                   alt="Accessible ensuite bathroom"
@@ -98,12 +110,13 @@ export default function Homes() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-forest mb-6">Home Features</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+            <h3 className="text-2xl font-bold text-forest mb-2">Home Features</h3>
+            <p className="text-warm-brown/60 text-sm mb-6">Every home includes</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-12">
               {HOMES.features.map((feature) => (
                 <div
                   key={feature.label}
-                  className="flex items-center gap-3 rounded-xl bg-cream-v3 p-4 border border-warm-gray-v3/30"
+                  className="flex items-center gap-3 rounded-xl bg-cream-v3 p-4 border border-warm-gray-v3/30 hover:border-sage/30 transition-colors"
                 >
                   <div className="w-10 h-10 rounded-xl bg-sage/10 flex items-center justify-center text-sage flex-shrink-0">
                     {featureIcons[feature.icon] || featureIcons.home}
@@ -113,7 +126,8 @@ export default function Homes() {
               ))}
             </div>
 
-            <h3 className="text-2xl font-bold text-forest mb-4">Floor Plans</h3>
+            <h3 className="text-2xl font-bold text-forest mb-2">Floor Plans</h3>
+            <p className="text-warm-brown/60 text-sm mb-5">Select a layout to explore</p>
             <div className="flex gap-2 mb-6" role="tablist" aria-label="Floor plan selector">
               {HOMES.floorPlans.map((plan) => (
                 <button

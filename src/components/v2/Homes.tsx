@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { HOMES } from '@/lib/content';
+import { HOMES } from '@/lib/content-v2';
 import { track } from '@/lib/analytics';
 
 function FeatureIcon({ icon }: { icon: string }) {
@@ -53,54 +53,63 @@ export default function Homes() {
     <section
       ref={sectionRef}
       id="homes"
-      className="bg-charcoal py-24 lg:py-32"
+      className="bg-charcoal-v2 py-28 lg:py-40"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
-          <div className="accent-line mx-auto mb-6" />
+          <div className="accent-line mx-auto mb-8" />
           <h2
-            className={`text-3xl font-light tracking-tight text-ivory sm:text-4xl lg:text-5xl ${
+            className={`tracking-tight text-ivory ${
               visible ? 'animate-fade-up' : 'opacity-0'
             }`}
           >
             {HOMES.title}
           </h2>
           <p
-            className={`mt-4 text-lg text-neutral-400 ${
+            className={`mx-auto mt-4 text-lg text-neutral-400 ${
               visible ? 'animate-fade-up delay-100' : 'opacity-0'
             }`}
           >
             {HOMES.subtitle}
           </p>
+          <p
+            className={`mx-auto mt-6 text-base leading-relaxed text-ivory/50 ${
+              visible ? 'animate-fade-up delay-200' : 'opacity-0'
+            }`}
+          >
+            {HOMES.intro}
+          </p>
         </div>
 
         <div
           className={`mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${
-            visible ? 'animate-fade-up delay-200' : 'opacity-0'
+            visible ? 'animate-fade-up delay-300' : 'opacity-0'
           }`}
         >
           {HOMES.features.map((feature) => (
             <div
               key={feature.label}
-              className="flex items-center gap-4 border border-charcoal-light bg-charcoal-light/50 p-5 transition-colors duration-300 hover:border-copper/20"
+              className="flex items-center gap-4 border border-charcoal-light/80 bg-charcoal-light/30 p-6 transition-all duration-500 hover:border-copper/20 hover:bg-charcoal-light/50"
             >
               <span className="text-copper">
                 <FeatureIcon icon={feature.icon} />
               </span>
-              <span className="text-base text-ivory/80">{feature.label}</span>
+              <span className="text-base text-ivory/70">{feature.label}</span>
             </div>
           ))}
         </div>
 
+        <div className="section-divider my-20" />
+
         <div
-          className={`mt-20 ${visible ? 'animate-fade-up delay-400' : 'opacity-0'}`}
+          className={`${visible ? 'animate-fade-up' : 'opacity-0'}`}
           style={{ animationDelay: visible ? '400ms' : undefined }}
         >
-          <h3 className="mb-8 text-center text-sm font-medium tracking-[0.2em] text-copper uppercase">
+          <h3 className="mb-10 text-center text-sm font-medium tracking-[0.2em] text-copper uppercase">
             Choose Your Home
           </h3>
 
-          <div className="mx-auto flex max-w-xs justify-center gap-4">
+          <div className="mx-auto flex max-w-sm justify-center gap-4">
             {HOMES.floorPlans.map((fp, i) => (
               <button
                 key={fp.id}
@@ -108,10 +117,10 @@ export default function Homes() {
                   setActivePlan(i);
                   track('floorplan_view', { plan: fp.id });
                 }}
-                className={`flex-1 border px-6 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 ${
+                className={`flex-1 border px-6 py-3.5 text-sm font-medium tracking-wider uppercase transition-all duration-500 ${
                   activePlan === i
                     ? 'border-copper bg-copper text-black-deep'
-                    : 'border-charcoal-light text-ivory/60 hover:border-copper/40 hover:text-ivory'
+                    : 'border-charcoal-light text-ivory/50 hover:border-copper/40 hover:text-ivory'
                 }`}
               >
                 {fp.name}
@@ -119,34 +128,44 @@ export default function Homes() {
             ))}
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-5xl gap-8 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden bg-charcoal-light">
+          <div className="mx-auto mt-12 grid max-w-5xl gap-10 lg:grid-cols-2">
+            <div className="relative aspect-[4/3] overflow-hidden border border-charcoal-light/50">
               <Image
                 src="/images/living-room.jpg"
                 alt={`${plan.name} layout preview`}
                 fill
-                className="object-cover opacity-80 transition-opacity duration-500 hover:opacity-100"
+                className="object-cover opacity-80 transition-all duration-700 hover:opacity-100"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="absolute bottom-4 left-4">
+                <span className="bg-black-deep/80 px-3 py-1.5 text-xs tracking-wider text-ivory/60 uppercase backdrop-blur-sm">
+                  Sample layout — details coming soon
+                </span>
+              </div>
             </div>
             <div className="flex flex-col justify-center">
-              <h4 className="text-2xl font-light text-ivory">{plan.name}</h4>
-              <p className="mt-1 text-sm tracking-wider text-copper uppercase">
+              <h4 className="text-2xl font-light tracking-tight text-ivory">{plan.name}</h4>
+              <p className="mt-1.5 text-sm tracking-wider text-copper uppercase">
                 {plan.bedrooms} {plan.bedrooms === 1 ? 'Bedroom' : 'Bedrooms'}
               </p>
-              <ul className="mt-6 space-y-3">
+              {plan.description && (
+                <p className="mt-4 text-base leading-relaxed text-ivory/50">
+                  {plan.description}
+                </p>
+              )}
+              <ul className="mt-8 space-y-4">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-ivory/70">
+                  <li key={f} className="flex items-start gap-3 text-ivory/60">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="mt-0.5 h-4 w-4 shrink-0 text-copper">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    {f}
+                    <span className="text-base">{f}</span>
                   </li>
                 ))}
               </ul>
               <a
                 href="#register"
-                className="mt-8 inline-block w-fit border border-copper px-8 py-3 text-sm font-medium tracking-wider text-copper uppercase transition-all duration-300 hover:bg-copper hover:text-black-deep"
+                className="mt-10 inline-block w-fit border border-copper px-10 py-3.5 text-sm font-medium tracking-wider text-copper uppercase transition-all duration-500 hover:bg-copper hover:text-black-deep hover:shadow-lg hover:shadow-copper/10"
               >
                 Register Interest
               </a>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { AMENITIES } from '@/lib/content';
+import { AMENITIES } from '@/lib/content-v2';
 import { track } from '@/lib/analytics';
 
 export default function Amenities() {
@@ -20,7 +20,7 @@ export default function Amenities() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.1 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -30,10 +30,10 @@ export default function Amenities() {
     <section
       ref={sectionRef}
       id="amenities"
-      className="bg-ivory py-24 lg:py-32"
+      className="bg-ivory py-28 lg:py-40"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
           <div
             className={`relative aspect-[4/3] overflow-hidden ${
               visible ? 'animate-fade-up' : 'opacity-0'
@@ -46,22 +46,22 @@ export default function Amenities() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black-deep/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black-deep/20 to-transparent" />
           </div>
 
           <div
             className={visible ? 'animate-fade-up delay-200' : 'opacity-0'}
           >
-            <div className="accent-line mb-6" />
-            <h2 className="text-3xl font-light tracking-tight text-black-deep sm:text-4xl lg:text-5xl">
+            <div className="accent-line mb-8" />
+            <h2 className="tracking-tight text-black-deep">
               {AMENITIES.title}
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-neutral-600">
+            <p className="mt-8 text-lg leading-relaxed text-neutral-600">
               {AMENITIES.description}
             </p>
 
-            <div className="mt-8 border border-neutral-200 bg-white p-8">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="mt-10 border border-neutral-200/80 bg-white p-10">
+              <div className="flex items-center gap-3 mb-5">
                 <span className="flex h-10 w-10 items-center justify-center bg-copper/10 text-copper">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5">
                     <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
@@ -71,7 +71,7 @@ export default function Amenities() {
                   Powered by {AMENITIES.partnerName}
                 </span>
               </div>
-              <p className="text-base leading-relaxed text-neutral-600">
+              <p className="text-base leading-relaxed text-neutral-500">
                 {AMENITIES.placeholder}
               </p>
             </div>

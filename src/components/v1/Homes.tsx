@@ -21,20 +21,26 @@ export default function Homes() {
   const [activePlan, setActivePlan] = useState<string | null>(null);
 
   return (
-    <section id="homes" className="py-20 lg:py-28 bg-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-bold text-navy mb-4 font-[Georgia,serif]">
+    <section id="homes" className="py-24 lg:py-32 bg-cream">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-3xl mx-auto text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy mb-6 font-[Georgia,serif] leading-tight">
             {HOMES.title}
           </h2>
-          <p className="text-xl text-warm-gray">{HOMES.subtitle}</p>
+          <p className="text-xl lg:text-2xl text-warm-gray leading-relaxed">
+            {HOMES.subtitle}
+          </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <p className="max-w-2xl mx-auto text-center text-lg text-charcoal/80 leading-relaxed mb-16">
+          {HOMES.intro}
+        </p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
           {HOMES.features.map((feature) => (
             <div
               key={feature.label}
-              className="flex items-start gap-4 bg-white p-5 rounded-lg shadow-sm"
+              className="flex items-start gap-4 bg-white p-6 rounded-xl shadow-sm border border-cream-dark/20 hover:shadow-md hover:border-gold/30 transition-all duration-200"
             >
               <div className="flex-shrink-0">
                 <svg
@@ -55,16 +61,16 @@ export default function Homes() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-navy mb-8 text-center font-[Georgia,serif]">
+          <h3 className="text-2xl lg:text-3xl font-bold text-navy mb-10 text-center font-[Georgia,serif]">
             Explore Our Layouts
           </h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
             {HOMES.floorPlans.map((plan) => (
               <div
                 key={plan.id}
-                className="bg-white rounded-lg shadow-sm overflow-hidden border border-cream-dark"
+                className="bg-white rounded-xl shadow-sm overflow-hidden border border-cream-dark/30 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="relative h-56 bg-cream flex items-center justify-center">
+                <div className="relative h-60 bg-cream flex items-center justify-center">
                   <Image
                     src="/images/living-room.jpg"
                     alt={`${plan.name} layout preview`}
@@ -73,21 +79,24 @@ export default function Homes() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-navy/30 flex items-center justify-center">
-                    <span className="bg-white/90 text-navy font-semibold px-4 py-2 rounded text-sm">
+                    <span className="bg-white/90 text-navy font-semibold px-5 py-2.5 rounded-lg text-sm shadow-sm">
                       Sample layout — details coming soon
                     </span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-navy mb-1">
+                <div className="p-8">
+                  <h4 className="text-xl font-bold text-navy mb-1.5 font-[Georgia,serif]">
                     {plan.name}
                   </h4>
-                  <p className="text-warm-gray text-sm mb-4">
+                  <p className="text-warm-gray text-sm mb-3">
                     {plan.bedrooms} Bedroom{plan.bedrooms > 1 ? 's' : ''}
                   </p>
-                  <ul className="space-y-2 mb-5">
+                  <p className="text-charcoal/70 text-base leading-relaxed mb-5">
+                    {plan.description}
+                  </p>
+                  <ul className="space-y-2.5 mb-6">
                     {plan.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-charcoal text-sm">
+                      <li key={f} className="flex items-start gap-2.5 text-charcoal text-sm">
                         <svg className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -100,14 +109,14 @@ export default function Homes() {
                       setActivePlan(activePlan === plan.id ? null : plan.id);
                       track('floorplan_view', { plan: plan.id });
                     }}
-                    className="w-full bg-navy text-white py-3 rounded font-semibold hover:bg-navy-light transition-colors"
+                    className="w-full bg-navy text-white py-3.5 rounded-lg font-semibold hover:bg-navy-light transition-colors"
                   >
                     {activePlan === plan.id ? 'Close' : 'View Layout'}
                   </button>
                 </div>
                 {activePlan === plan.id && (
-                  <div className="border-t border-cream-dark p-6 bg-cream/50 text-center">
-                    <p className="text-warm-gray text-base italic">
+                  <div className="border-t border-cream-dark p-8 bg-cream/50 text-center">
+                    <p className="text-warm-gray text-base italic leading-relaxed">
                       Detailed floor plans coming soon. Contact us for more information.
                     </p>
                   </div>

@@ -106,18 +106,25 @@ export default function RegistrationForm() {
 
   if (success) {
     return (
-      <section id="register" className="py-20 sm:py-28 bg-sage" aria-labelledby="register-heading">
+      <section id="register" className="py-24 lg:py-32 bg-sage" aria-labelledby="register-heading">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="rounded-3xl bg-soft-white p-10 sm:p-14 shadow-lg">
-            <div className="w-20 h-20 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-6">
+          <div className="rounded-3xl bg-soft-white p-12 sm:p-16 shadow-lg">
+            <div className="w-20 h-20 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-8">
               <svg className="w-10 h-10 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 id="register-heading" className="text-3xl font-bold text-forest mb-3">
+            <h2 id="register-heading" className="text-3xl sm:text-4xl font-bold text-forest mb-4 tracking-tight">
               {FORM.successTitle}
             </h2>
-            <p className="text-warm-brown/80 text-lg leading-relaxed">{FORM.successMessage}</p>
+            <p className="text-warm-brown/80 text-lg leading-relaxed max-w-md mx-auto">
+              {FORM.successMessage}
+            </p>
+            <div className="mt-8 pt-8 border-t border-warm-gray-v3/30">
+              <p className="text-warm-brown/60 text-sm">
+                Opening Spring 2026
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -125,24 +132,24 @@ export default function RegistrationForm() {
   }
 
   const inputClasses = (field: string) =>
-    `w-full rounded-xl border-2 px-4 py-3 text-base text-forest bg-soft-white placeholder:text-warm-brown/40 transition-colors focus:outline-none focus:ring-0 ${
+    `w-full rounded-xl border-2 px-4 py-3.5 text-base text-forest bg-soft-white placeholder:text-warm-brown/40 transition-colors focus:outline-none focus:ring-0 ${
       errors[field]
         ? 'border-red-400 focus:border-red-500'
         : 'border-warm-gray-v3 focus:border-sage'
     }`;
 
   return (
-    <section id="register" className="py-20 sm:py-28 bg-sage" aria-labelledby="register-heading">
+    <section id="register" className="py-24 lg:py-32 bg-sage" aria-labelledby="register-heading">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-soft-white p-8 sm:p-12 shadow-xl">
-          <div className="text-center mb-10">
-            <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-4">
+        <div className="rounded-3xl bg-soft-white p-8 sm:p-12 lg:p-14 shadow-xl">
+          <div className="text-center mb-12">
+            <span className="inline-block rounded-full bg-terracotta/10 px-4 py-1.5 text-sm font-semibold text-terracotta mb-5">
               Get Started
             </span>
             <h2 id="register-heading" className="text-3xl sm:text-4xl font-bold text-forest tracking-tight">
               {FORM.title}
             </h2>
-            <p className="mt-3 text-warm-brown/80 text-lg">{FORM.subtitle}</p>
+            <p className="mt-4 text-warm-brown/80 text-lg leading-relaxed">{FORM.subtitle}</p>
           </div>
 
           {serverError && (
@@ -151,10 +158,10 @@ export default function RegistrationForm() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} noValidate className="space-y-6">
+          <form onSubmit={handleSubmit} noValidate className="space-y-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="fullName" className="block text-sm font-semibold text-forest mb-2">
+                <label htmlFor="fullName" className="block text-sm font-semibold text-forest mb-2.5">
                   Full Name <span className="text-terracotta">*</span>
                 </label>
                 <input
@@ -174,7 +181,7 @@ export default function RegistrationForm() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-forest mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-forest mb-2.5">
                   Email <span className="text-terracotta">*</span>
                 </label>
                 <input
@@ -195,7 +202,7 @@ export default function RegistrationForm() {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-semibold text-forest mb-2">
+              <label htmlFor="phone" className="block text-sm font-semibold text-forest mb-2.5">
                 Phone <span className="text-terracotta">*</span>
               </label>
               <input
@@ -216,7 +223,7 @@ export default function RegistrationForm() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div>
-                <label htmlFor="suitePreference" className="block text-sm font-semibold text-forest mb-2">
+                <label htmlFor="suitePreference" className="block text-sm font-semibold text-forest mb-2.5">
                   Suite Preference <span className="text-terracotta">*</span>
                 </label>
                 <select
@@ -239,7 +246,7 @@ export default function RegistrationForm() {
               </div>
 
               <div>
-                <label htmlFor="floorPreference" className="block text-sm font-semibold text-forest mb-2">
+                <label htmlFor="floorPreference" className="block text-sm font-semibold text-forest mb-2.5">
                   Floor <span className="text-terracotta">*</span>
                 </label>
                 <select
@@ -262,7 +269,7 @@ export default function RegistrationForm() {
               </div>
 
               <div>
-                <label htmlFor="budget" className="block text-sm font-semibold text-forest mb-2">
+                <label htmlFor="budget" className="block text-sm font-semibold text-forest mb-2.5">
                   Budget <span className="text-terracotta">*</span>
                 </label>
                 <input
@@ -292,7 +299,7 @@ export default function RegistrationForm() {
                   { name: 'email', label: 'Email' },
                   { name: 'text', label: 'Text' },
                 ].map(({ name, label }) => (
-                  <label key={name} className="flex items-center gap-2 cursor-pointer group">
+                  <label key={name} className="flex items-center gap-2.5 cursor-pointer group">
                     <input
                       type="checkbox"
                       name={name}
@@ -310,7 +317,7 @@ export default function RegistrationForm() {
             </fieldset>
 
             <div>
-              <label htmlFor="notes" className="block text-sm font-semibold text-forest mb-2">
+              <label htmlFor="notes" className="block text-sm font-semibold text-forest mb-2.5">
                 Notes <span className="text-warm-brown/50 font-normal">(optional)</span>
               </label>
               <textarea
@@ -347,7 +354,7 @@ export default function RegistrationForm() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full rounded-full bg-terracotta py-4 text-lg font-semibold text-white shadow-lg hover:bg-terracotta-dark transition-all hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full rounded-full bg-terracotta py-4.5 text-lg font-semibold text-white shadow-lg hover:bg-terracotta-dark transition-all hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {submitting ? (
                 <span className="flex items-center justify-center gap-2">

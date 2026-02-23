@@ -26,16 +26,16 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white shadow-md py-3'
-          : 'bg-white/95 py-4'
+          ? 'bg-white shadow-md py-3.5'
+          : 'bg-white/95 py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         <a href="#" className="text-navy text-xl sm:text-2xl font-bold font-[Georgia,serif] tracking-tight">
           {SITE_NAME}
         </a>
 
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden lg:flex items-center gap-9" aria-label="Main navigation">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -48,7 +48,7 @@ export default function Header() {
           <a
             href="#register"
             onClick={() => track('cta_click', { location: 'header' })}
-            className="bg-navy text-white px-6 py-2.5 rounded text-base font-semibold hover:bg-navy-light transition-colors"
+            className="bg-navy text-white px-7 py-3 rounded-lg text-base font-semibold hover:bg-navy-light transition-colors"
           >
             {HERO.cta}
           </a>
@@ -58,13 +58,13 @@ export default function Header() {
           <a
             href="#register"
             onClick={() => track('cta_click', { location: 'header-mobile' })}
-            className="bg-navy text-white px-4 py-2 rounded text-sm font-semibold hover:bg-navy-light transition-colors"
+            className="bg-navy text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-navy-light transition-colors"
           >
             Register
           </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 text-navy"
+            className="p-2.5 text-navy"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
@@ -80,13 +80,13 @@ export default function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="lg:hidden bg-white border-t border-cream-dark px-4 py-4 space-y-3" aria-label="Mobile navigation">
+        <nav className="lg:hidden bg-white border-t border-cream-dark px-6 py-5 space-y-1" aria-label="Mobile navigation">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-charcoal hover:text-navy text-lg py-2 border-b border-cream"
+              className="block text-charcoal hover:text-navy text-lg py-3 border-b border-cream"
             >
               {link.label}
             </a>
