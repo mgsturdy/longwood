@@ -7,7 +7,6 @@ import { track } from '@/lib/analytics';
 const NAV_LINKS = [
   { label: 'Why Rent', href: '#overview' },
   { label: 'The Homes', href: '#homes' },
-  { label: 'Amenities', href: '#amenities' },
   { label: 'Location', href: '#location' },
   { label: 'Gallery', href: '#gallery' },
 ];

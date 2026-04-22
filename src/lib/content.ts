@@ -1,10 +1,10 @@
 export const SITE_NAME = 'Chelsea at Longwood';
 
 export const HERO = {
-  headline: 'Modern Rental Living for Your Next Chapter',
+  headline: 'Luxury Rental Living for Your Next Chapter',
   subheadline: 'Bright, comfortable homes in the heart of Longwood.',
   cta: 'Register for Updates',
-  trustCues: ['Professionally managed', '55+ friendly living', 'Opening Spring 2026'],
+  trustCues: ['Professionally managed', 'Opening Summer 2026'],
 };
 
 export const OVERVIEW = {
@@ -14,10 +14,7 @@ export const OVERVIEW = {
     'Leave strata meetings, repairs, and maintenance behind',
     'No strata fees or unexpected special levies',
     'Brand-new, move-in-ready homes — just bring what matters to you',
-    'A built-in community of neighbours who share your stage of life',
     'Lower financial risk and greater flexibility for your future',
-    'Peace of mind for downsizers and retirees who want simplicity and comfort',
-    'Professionally managed by a dedicated team — so you don\'t have to think about it',
   ],
 };
 
@@ -33,7 +30,7 @@ export const HOMES = {
     { label: 'In-suite laundry', icon: 'laundry' },
     { label: 'Open, practical layouts', icon: 'layout' },
     { label: 'Large windows with natural light', icon: 'sun' },
-    { label: 'Accessible bathrooms', icon: 'accessible' },
+    { label: 'Covered patios', icon: 'balcony' },
     { label: 'Large private balconies', icon: 'balcony' },
   ],
   floorPlans: [
@@ -47,7 +44,7 @@ export const HOMES = {
         'Modern kitchen with full appliances',
         'In-suite laundry',
         'Private balcony',
-        'Accessible bathroom',
+        'Covered patio',
       ],
     },
     {
@@ -61,7 +58,7 @@ export const HOMES = {
         'In-suite laundry',
         'Private balcony',
         'Primary bedroom ensuite',
-        'Accessible bathroom',
+        'Covered patio',
       ],
     },
   ],
@@ -128,13 +125,6 @@ export const GALLERY = {
       height: 1350,
     },
     {
-      src: '/images/amenity.jpg',
-      alt: 'Chelsea at Longwood amenity space rendering',
-      category: 'amenity' as const,
-      width: 2400,
-      height: 1600,
-    },
-    {
       src: '/images/living-room.jpg',
       alt: 'Bright, modern living room with large windows and natural light',
       category: 'interior' as const,
@@ -165,9 +155,9 @@ export const GALLERY = {
     {
       src: '/images/pano-view.jpg',
       alt: 'Panoramic view from Chelsea at Longwood balcony',
-      category: 'neighbourhood' as const,
+      category: 'interior' as const,
       width: 2400,
-      height: 1200,
+      height: 960,
     },
     {
       src: '/images/pano-view-2.jpg',
@@ -187,7 +177,7 @@ export const FORM = {
   successTitle: 'Thank you for your interest.',
   successMessage:
     'We\'ve received your information and will be in touch soon with updates about Chelsea at Longwood. We look forward to welcoming you.',
-  consentText: `By clicking on the box, I consent to Chelsea at Longwood marketing and leasing team to contact me via electronic and non-electronic means with messages such as newsletters, announcements, press releases and event invitations regarding their respective products and services. I consent to the collection, use and disclosure of my information submitted for the purposes disclosed on this page, including for electronic and non-electronic communications. I may withdraw my consent to electronic messages at any time by following the unsubscribe links contained in them. Gulf Development Inc's contact details are [Address].`,
+  consentText: `By clicking on the box, I consent to Chelsea at Longwood marketing and leasing team to contact me via electronic and non-electronic means with messages such as newsletters, announcements, press releases and event invitations regarding their respective products and services. I consent to the collection, use and disclosure of my information submitted for the purposes disclosed on this page, including for electronic and non-electronic communications. I may withdraw my consent to electronic messages at any time by following the unsubscribe links contained in them.`,
   suiteOptions: [
     { value: '1BR', label: '1 Bedroom' },
     { value: '2BR', label: '2 Bedroom' },
@@ -201,7 +191,7 @@ export const FORM = {
 };
 
 export const FOOTER = {
-  email: 'info@askgreta.com',
+  email: 'info@chelsealiving.net',
   phone: '250.619.9500',
   propertyManager: 'Gulf Properties & Property Management Team',
   address: '4775 Upland Drive, Nanaimo, BC V9T6L8',

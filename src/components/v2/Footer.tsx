@@ -11,7 +11,7 @@ export default function Footer() {
               <span className="ml-1.5 font-light text-ivory/70">at Longwood</span>
             </span>
             <p className="mt-5 text-sm leading-relaxed text-ivory/35">
-              Modern 55+ rental living in the heart of Longwood, Nanaimo. Opening Spring 2026.
+              Modern 55+ rental living in the heart of Longwood, Nanaimo. Opening Summer 2026.
             </p>
           </div>
 

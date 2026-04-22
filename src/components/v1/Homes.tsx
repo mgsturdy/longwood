@@ -1,13 +1,7 @@
-'use client';
-
-import { useState } from 'react';
 import Image from 'next/image';
 import { HOMES } from '@/lib/content';
-import { track } from '@/lib/analytics';
 
 export default function Homes() {
-  const [activePlan, setActivePlan] = useState<string | null>(null);
-
   return (
     <section id="homes" className="py-28 lg:py-40 bg-cream">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -57,7 +51,7 @@ export default function Homes() {
               >
                 <div className="relative h-64 lg:h-72">
                   <Image
-                    src="/images/living-room.jpg"
+                    src={plan.id === '2br' ? '/images/pano-view.jpg' : '/images/living-room.jpg'}
                     alt={`${plan.name} layout preview`}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -86,23 +80,10 @@ export default function Homes() {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    onClick={() => {
-                      setActivePlan(activePlan === plan.id ? null : plan.id);
-                      track('floorplan_view', { plan: plan.id });
-                    }}
-                    className="w-full bg-navy text-white py-4 font-semibold hover:bg-navy-light transition-colors tracking-wide"
-                  >
-                    {activePlan === plan.id ? 'Close' : 'View Layout Details'}
-                  </button>
-                </div>
-                {activePlan === plan.id && (
-                  <div className="border-t border-cream-dark p-8 bg-cream/50 text-center">
-                    <p className="text-warm-gray text-base italic leading-relaxed">
-                      Detailed floor plans coming soon. Contact us for more information.
-                    </p>
+                  <div className="w-full bg-navy/10 text-navy py-4 font-semibold text-center tracking-wide">
+                    Layout Details Coming Soon
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>

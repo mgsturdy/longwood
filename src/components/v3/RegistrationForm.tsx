@@ -122,7 +122,7 @@ export default function RegistrationForm() {
             </p>
             <div className="mt-8 pt-8 border-t border-warm-gray-v3/30">
               <p className="text-warm-brown/60 text-sm">
-                Opening Spring 2026
+                Opening Summer 2026
               </p>
             </div>
           </div>

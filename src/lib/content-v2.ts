@@ -11,7 +11,7 @@ export { SITE_NAME } from './content';
 
 export const HERO = {
   ...BASE_HERO,
-  trustCues: ['Professionally managed', '55+ friendly living', 'Opening Spring 2026'],
+  trustCues: ['Professionally managed', 'Opening Summer 2026'],
 };
 
 export const OVERVIEW = {

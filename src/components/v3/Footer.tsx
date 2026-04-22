@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-2xl mb-2">{SITE_NAME}</h3>
             <p className="text-terracotta-light tracking-[0.2em] uppercase text-xs font-medium mb-6">
-              Opening Spring 2026
+              Opening Summer 2026
             </p>
             <p className="text-cream-v3/60 leading-relaxed max-w-sm">
               Modern 55+ rental living in the heart of Longwood, Nanaimo. Your next chapter starts here.

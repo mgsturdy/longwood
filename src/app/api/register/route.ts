@@ -59,7 +59,7 @@ async function sendEmailNotification(payload: RegistrationPayload) {
 
   const body = {
     from: 'Chelsea at Longwood <noreply@chelseaatlongwood.com>',
-    to: [process.env.NOTIFICATION_EMAIL || 'info@askgreta.com'],
+    to: [process.env.NOTIFICATION_EMAIL || 'info@chelsealiving.net'],
     subject: `New Registration: ${payload.fullName} — Chelsea at Longwood`,
     html: `
       <h2>New Registration — Chelsea at Longwood</h2>

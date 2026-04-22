@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-2xl font-bold mb-2">{SITE_NAME}</h3>
             <p className="text-gold tracking-[0.2em] uppercase text-xs font-semibold mb-6">
-              Opening Spring 2026
+              Opening Summer 2026
             </p>
             <p className="text-white/50 leading-relaxed text-base max-w-sm">
               {FOOTER.address}
@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="md:col-span-4">
             <h4 className="text-xs tracking-[0.2em] uppercase text-white/40 font-semibold mb-6">Navigate</h4>
             <div className="grid grid-cols-2 gap-3">
-              {['Why Rent', 'The Homes', 'Amenities', 'Location', 'Gallery', 'Register'].map((label) => (
+              {['Why Rent', 'The Homes', 'Location', 'Gallery', 'Register'].map((label) => (
                 <a
                   key={label}
                   href={`#${label.toLowerCase().replace(/\s/g, '')}`}
